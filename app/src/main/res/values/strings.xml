@@ -7,4 +7,6 @@
     <string name="number">Number</string>
     <string name="name">Name</string>
     <string name="sort_by">Sort by:</string>
+    <string name="shimmer_pokemon_number">#999</string>
+    <string name="shimmer_pokemon_name">Pokémon Name</string>
 </resources>

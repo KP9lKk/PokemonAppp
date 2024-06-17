@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/PrimaryColor"
     android:orientation="vertical"
-    tools:context=".screens.MainScreen">
+    tools:context=".ui.screens.MainScreen">
 <LinearLayout
     android:layout_marginTop="16dp"
     android:layout_marginStart="16dp"
@@ -25,7 +25,6 @@
         android:layout_gravity="center"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:textFontWeight="700"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pok_dex" />
@@ -58,5 +57,19 @@
             android:layout_height="32dp"/>
 
     </LinearLayout>
-
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_white_backgorund_8px"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginBottom="4dp"
+    android:paddingHorizontal="12dp"
+    tools:listitem="@layout/pokemon_items"
+    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+    app:spanCount="3"
+    android:paddingTop="24dp"
+    android:layout_gravity="center_horizontal"
+    tools:itemCount="30"
+   />
 </LinearLayout>

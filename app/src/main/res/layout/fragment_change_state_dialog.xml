@@ -7,7 +7,7 @@
     app:cardBackgroundColor="@color/PrimaryColor"
     app:cardCornerRadius="12dp"
     app:contentPadding="4dp"
-    tools:context=".screens.ChangeStateFragmentDialog">
+    tools:context=".ui.screens.ChangeStateFragmentDialog">
 <LinearLayout
 
     android:layout_width="wrap_content"
