@@ -19,6 +19,7 @@
         android:layout_height="24dp"
         android:src="@drawable/ic_pokeball" />
     <TextView
+        android:id="@+id/title"
         android:fontFamily="@font/poppins_bold"
         android:layout_marginStart="16dp"
         android:textAlignment="center"
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
             app:searchIcon="@drawable/ic_search_small"
             app:iconifiedByDefault="false"
             app:closeIcon="@drawable/ic_close_small"
@@ -58,6 +60,7 @@
 
     </LinearLayout>
 <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/PokemonList"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rounded_white_backgorund_8px"
