@@ -1,6 +1,7 @@
 package com.example.pokemonapp.ui.screens
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
@@ -29,7 +30,9 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
                     setSortByName(view)
                 }
                 if (!it.pokemonList.isNullOrEmpty()){
-                    val adapter  = PokemonAdapter(it.pokemonList)
+                    val adapter  = PokemonAdapter(it.pokemonList){
+                        Log.d("PokemonClick", "onViewCreated: ${it.name}")
+                    }
                     mainScreenViewBinding?.PokemonList?.adapter = adapter
                 }
             }

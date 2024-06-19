@@ -5,4 +5,6 @@
     <color name="PrimaryColor">#DC0A2D</color>
     <color name="ShimmerColor">#666666</color>
     <color name="ShimmerDarkColor">#1D1D1D</color>
+    <color name="grayscale_dark">#1D1D1D</color>
+    <color name="greyscale_medium">#666666</color>
 </resources>

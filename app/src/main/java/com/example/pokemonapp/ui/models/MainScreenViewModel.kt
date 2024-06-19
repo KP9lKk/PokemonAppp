@@ -1,6 +1,5 @@
 package com.example.pokemonapp.ui.models
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
@@ -8,10 +7,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.pokemonResponseapp.data.repository.PokemonRepository
 import com.example.pokemonapp.PokemonApplication
-import com.example.pokemonapp.data.models.PokemonItemResponse
-import com.example.pokemonapp.ui.screens.MainScreen
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -37,22 +34,13 @@ class MainScreenViewModel(private val repository: PokemonRepository): ViewModel(
 
     fun getPokemons(){
         _stateMainScreen.update { it.copy(isLoading = true) }
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.getPokemons().collect{ result ->
-                if (result.isSuccessful){
-                    val pokemonItemsResponse = result.body()
-                    Log.d("StateViewModel", pokemonItemsResponse?.count.toString())
                     _stateMainScreen.update {
-                        it.copy(pokemonList = pokemonItemsResponse!!.results)
-                    }
-                }
-                else{
-                    _stateMainScreen.update {
-                        it.copy(isLoading = false, isError = true)
+                        it.copy(pokemonList = result, isLoading = false)
                     }
                 }
             }
-        }
     }
 
     companion object {
