@@ -169,9 +169,7 @@
                         android:layout_gravity="center"
                         android:text="@string/height"
                         android:textAppearance="@style/BodyCaption"
-                        android:textColor="@color/greyscale_medium"
-                    "
-                    />
+                        android:textColor="@color/greyscale_medium" />
                 </LinearLayout>
             </LinearLayout>
 

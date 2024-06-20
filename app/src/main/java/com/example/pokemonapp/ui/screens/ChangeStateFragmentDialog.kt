@@ -1,24 +1,12 @@
 package com.example.pokemonapp.ui.screens
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.text.Layout
-import android.util.Log
 import android.view.Gravity
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.Window
-import android.widget.CompoundButton.OnCheckedChangeListener
 import android.widget.RadioGroup
-import android.widget.Toast
-import androidx.appcompat.app.ActionBar.LayoutParams
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.pokemonapp.R
 import com.example.pokemonapp.databinding.FragmentChangeStateDialogBinding
@@ -33,7 +21,7 @@ class ChangeStateFragmentDialog() : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder.create()
         } ?: throw IllegalStateException()
-            val viewModel by viewModels<MainScreenViewModel>({requireParentFragment()})
+            val viewModel by activityViewModels<MainScreenViewModel>()
         val view = layoutInflater.inflate(R.layout.fragment_change_state_dialog, null)
         dialog.setView(view)
             changeStateBinding = FragmentChangeStateDialogBinding.bind(view)
