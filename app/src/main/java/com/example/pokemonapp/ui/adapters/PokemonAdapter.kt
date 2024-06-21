@@ -20,28 +20,7 @@ class PokemonAdapter(private val pokemons: List<PokemonResponse>,
         val pokemonImage = view.findViewById<ImageView>(R.id.PokemonImage)
         val pokemonNumber = view.findViewById<TextView>(R.id.PokemonNumber)
         val pokemonName = view.findViewById<TextView>(R.id.PokemonName)
-        val pokemonCard = view
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            .findViewById<CardView>(R.id.PokemonCard)
+        val pokemonCard = view.findViewById<CardView>(R.id.PokemonCard)
         fun bind(pokemon: PokemonResponse){
 
             pokemonImage.load(pokemon.sprites.other.official_artwork.front_default){

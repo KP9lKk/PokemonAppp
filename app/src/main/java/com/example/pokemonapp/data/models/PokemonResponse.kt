@@ -9,7 +9,7 @@ data class PokemonResponse(
     val weight: Int,
     val order: Int,
     val types: List<TypesResponse>,
-    val abilities: List<UrlResource>,
+    val abilities: List<AbilityResponse>,
     val species: UrlResource,
     val stats: List<StatsResponse>,
     val sprites: SpritesResponse
@@ -18,6 +18,11 @@ data class PokemonResponse(
 data class SpritesResponse(
     val other: OfficialSpriteResponse
 )
+
+data class AbilityResponse(
+    val ability: UrlResource
+)
+
 data class OfficialSpriteResponse(
     @SerializedName("official-artwork")
     val official_artwork :OfficialArtWorkResponse

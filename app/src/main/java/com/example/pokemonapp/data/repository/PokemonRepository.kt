@@ -2,6 +2,7 @@ package com.example.pokemonResponseapp.data.repository
 
 import android.util.Log
 import com.example.pokemonapp.data.models.PokemonResponse
+import com.example.pokemonapp.data.models.SpeciesPokemonResponse
 import com.example.pokemonapp.data.network.PokemonServiceImpl
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -22,5 +23,13 @@ class PokemonRepository(val pokemonServiceImpl: PokemonServiceImpl) {
             }
         }
         emit(pokemonList)
+    }
+
+    fun getSpeciesByName(name:String): Flow<SpeciesPokemonResponse> = flow {
+        val result = pokemonServiceImpl.getSpeciesByName(name)
+        if(result.isSuccessful){
+            val pokemonSpecies = checkNotNull(result.body())
+            emit(pokemonSpecies)
+        }
     }
 }

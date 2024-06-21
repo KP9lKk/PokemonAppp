@@ -30,14 +30,14 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
                 }
                 if (!it.pokemonList.isNullOrEmpty()){
                     val adapter  = PokemonAdapter(it.pokemonList){
-                        viewModel.selectPokemon(R.color.white, it)
+                        viewModel.selectPokemon(it)
                         viewModel.navigateToAbout()
                     }
                     mainScreenViewBinding?.PokemonList?.adapter = adapter
                 }
             }
         }
-        val dialog = ChangeStateFragmentDialog()
+
         mainScreenViewBinding?.ChangeMode?.setOnClickListener {
             viewModel.showStateChangeDialog(childFragmentManager)
         }

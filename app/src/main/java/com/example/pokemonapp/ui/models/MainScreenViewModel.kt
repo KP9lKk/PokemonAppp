@@ -29,9 +29,19 @@ class MainScreenViewModel(application: Application): AndroidViewModel(applicatio
 
     private var _fragmentManager: FragmentManager? = null
 
-    fun selectPokemon(color:Int, pokemonResponse: PokemonResponse){
-        _stateAboutScreen.update { it.copy(color, pokemonResponse) }
+    fun selectPokemon(pokemonResponse: PokemonResponse){
+        val pokemonSpecies = repository.getSpeciesByName(pokemonResponse.name)
+        viewModelScope.launch {
+            pokemonSpecies.collect{ resp ->
+                _stateAboutScreen.update {
+                    it.copy(
+                        color = resp.color.name,
+                        pokemonResponse = pokemonResponse) }
+            }
+        }
     }
+
+
 
     fun changeStateSort(state: MainScreenStateSort){
         when(state){
@@ -64,6 +74,7 @@ class MainScreenViewModel(application: Application): AndroidViewModel(applicatio
     fun navigateToAbout(){
         _fragmentManager?.commit {
             replace<AboutScreen>(R.id.host_fragment)
+            addToBackStack(null)
         }
     }
 
